@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Roadsters.Models;
 
 namespace Roadsters.Data
 {
@@ -12,5 +13,11 @@ namespace Roadsters.Data
             : base(options)
         {
         }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
+        public DbSet<Bike> Bikes { get; set; }
+
+
     }
 }

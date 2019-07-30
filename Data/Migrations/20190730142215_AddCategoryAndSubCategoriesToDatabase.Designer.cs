@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Roadsters.Data;
 
 namespace Roadsters.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190730142215_AddCategoryAndSubCategoriesToDatabase")]
+    partial class AddCategoryAndSubCategoriesToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,38 +186,6 @@ namespace Roadsters.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Roadsters.Models.Bike", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Image");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<double>("Price");
-
-                    b.Property<string>("Size");
-
-                    b.Property<string>("Stock");
-
-                    b.Property<int>("SubCategoryId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("SubCategoryId");
-
-                    b.ToTable("Bikes");
-                });
-
             modelBuilder.Entity("Roadsters.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -290,19 +260,6 @@ namespace Roadsters.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Roadsters.Models.Bike", b =>
-                {
-                    b.HasOne("Roadsters.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Roadsters.Models.SubCategory", "SubCategory")
-                        .WithMany()
-                        .HasForeignKey("SubCategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
