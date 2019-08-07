@@ -1,0 +1,98 @@
+﻿@model Roadsters.Models.ViewModels.BikeViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<br />
+<h2 class="text">Delete Bike</h2>
+<br />
+<form method="post">
+    <div class="backgroundColor row">
+        <div class="col-8">
+            <input type="hidden" asp-for="Bike.Id" />
+            <fieldset disabled>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.Name" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Bike.Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.Description" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        @Html.TextAreaFor(m => m.Bike.Description)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.Price" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Bike.Price" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.Size" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Bike.Size" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.CategoryId" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Bike.Category.Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.SubCategoryId" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Bike.SubCategory.Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Bike.Stock" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Bike.Stock" asp-items="Html.GetEnumSelectList<Bike.EStock>()" class="form-control"></select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="@Model.Bike.Image" width="100%" style="border-radius:5px;border:1px solid #bbb9b9;" />
+        </div>
+        <div class="col-8">
+            <div class="col-8 offset-4">
+                <partial name="_DeleteAndBackButton" model="Model.Bike.Id" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+            tinymce.init({
+                selector: 'textarea',
+                plugins: "lists",
+                toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist",
+                menubar: 'file edit format',
+                readonly: 1
+            });</script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+}
