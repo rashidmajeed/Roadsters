@@ -1,8 +1,54 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<div class="container">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <video id="bgvid" autoplay loop muted playsinline width="100%" height="100%">
+        <source src="~/videos/cycle-video.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+
+        <div class="caption text-center">
+            <h2> Roadsters is best Bike seller in Europe..</h2>
+            <h4> Customers can get most valuable offers here</h4>
+        </div>
+    </div>
+
 </div>
+
+<style>
+
+    .container {
+        position: relative;
+    }
+
+        .container video {
+            position: relative;
+            z-index: 0;
+        }
+
+    .overlay {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .caption h2 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    text-shadow: .1rem .1rem .8rem black;
+    }
+
+     .caption h4 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    text-shadow: .1rem .1rem .5rem black;
+    }
+
+
+
+</style>

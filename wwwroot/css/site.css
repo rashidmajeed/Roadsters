@@ -213,10 +213,11 @@ html {
         font-size: 16px;
     }
 }
+
 body {
     background: #100e17;
-     /* fallback for old browsers */
-   }
+    /* fallback for old browsers */
+}
 
 /*-----Footer --------------- */
 .footer {

@@ -230,6 +230,31 @@ namespace Roadsters.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Roadsters.Models.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CouponType")
+                        .IsRequired();
+
+                    b.Property<double>("Discount");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<double>("MinimumAmount");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<byte[]>("Picture");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupons");
+                });
+
             modelBuilder.Entity("Roadsters.Models.SubCategory", b =>
                 {
                     b.Property<int>("Id")
