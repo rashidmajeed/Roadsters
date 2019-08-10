@@ -1,0 +1,74 @@
+﻿@model Roadsters.Models.ViewModels.AccessorieViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<br />
+<h2 class="text">Delete Accessorie</h2>
+<br />
+<form method="post">
+    <div class="backgroundColor row">
+        <div class="col-8">
+            <input type="hidden" asp-for="Accessorie.Id" />
+            <fieldset disabled>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Accessorie.Name" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Accessorie.Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Accessorie.Description" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        @Html.TextAreaFor(m => m.Accessorie.Description)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Accessorie.Price" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Accessorie.Price" class="form-control" />
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Accessorie.Stock" class="custom-label text-white"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Accessorie.Stock" asp-items="Html.GetEnumSelectList<Accessorie.EStock>()" class="form-control"></select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="@Model.Accessorie.Image" width="100%" style="border-radius:5px;border:1px solid #bbb9b9;" />
+        </div>
+        <div class="col-8">
+            <div class="col-8 offset-4">
+                <partial name="_DeleteAndBackButton" model="Model.Accessorie.Id" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+            tinymce.init({
+                selector: 'textarea',
+                plugins: "lists",
+                toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist",
+                menubar: 'file edit format',
+                readonly: 1
+            });</script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+}

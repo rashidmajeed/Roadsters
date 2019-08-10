@@ -8,6 +8,8 @@ namespace Roadsters.Utility
     public static class SD
     {
         public const string DefaultBikeImage = "default-bike-image.png";
+        public const string DefaultAccessorieImage = "default-accessorie-image.jpg";
+
 
     }
 }

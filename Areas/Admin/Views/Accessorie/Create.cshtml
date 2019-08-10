@@ -1,0 +1,81 @@
+﻿
+@model Roadsters.Models.ViewModels.AccessorieViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-light">Create Accessorie</h2>
+<br />
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="border backgroundColor">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Accessorie.Name" class="col-form-label text-white"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Accessorie.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="Accessorie.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Accessorie.Description" class="col-form-label text-white"></label>
+            </div>
+            <div class="col-5">
+                @Html.TextAreaFor(m => m.Accessorie.Description)
+            </div>
+            <span asp-validation-for="Accessorie.Description" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Accessorie.Price" class="col-form-label text-white"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Accessorie.Price" class="form-control" />
+            </div>
+            <span asp-validation-for="Accessorie.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Accessorie.Image" class="col-form-label text-white"></label>
+            </div>
+            <div class="col-5">
+                <input type="file" name="files" multiple class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Accessorie.Stock" class="col-form-label text-white"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="Accessorie.Stock" asp-items="Html.GetEnumSelectList<Accessorie.EStock>()" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-5 offset-2">
+                <partial name="_CreateAndBackButton" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: "lists",
+            menubar: 'file edit format',
+            forced_root_block: false
+        });
+    </script>
+    
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
