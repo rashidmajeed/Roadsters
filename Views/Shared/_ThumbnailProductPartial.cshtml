@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Bike>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (Model.Count() > 0)
+{
+    <div class="container mt-5 border border-light rounded col-12" style="margin-bottom:10px; margin-top:10px; padding:10px">
+        <div class="row">
+            @foreach (var item in Model)
+
+            {
+                <div class="col-md-4 col-sm-6">
+                    <div class="card img-hover-zoom img-hover-zoom--colorize" style="border-radius:10px;">
+                        <img class="card-img" src="@item.Image" alt="Vans">
+                        <div class="card-img-overlay d-flex justify-content-end">
+                            <a href="#" class="card-link text-danger like">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">@item.Name</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">Category: @item.Category.Name</h6>
+
+                            <div class="buy d-flex justify-content-between align-items-center">
+                                <div class="price text-success"><h5 class="mt-4">$@item.Price</h5></div>
+                                <a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}
+
+

@@ -40,6 +40,12 @@ button.accept-policy {
     margin-bottom: 30px;
 }
 
+.backgroundColor_list {
+    background-image: radial-gradient( circle 705px at 3.8% 26.2%, rgba(135,145,255,1) 100.2%, rgba(135,145,255,1) 100.2% );
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
 
 /* Login and register CSS
 -------------------------------------------------- */
@@ -200,7 +206,24 @@ button.accept-policy {
     }
 }
 
-/*-------------------------------------------------- */
+/* Colorize-zoom Container for Cards */
+
+/* The Image container */
+.img-hover-zoom {
+    height: 350px; /* Modify this according to your need */
+    overflow: hidden; /* Removing this will break the effects */
+} 
+
+.img-hover-zoom--colorize img {
+    transition: transform .5s, filter 1.5s ease-in-out;
+    filter: grayscale(100%);
+}
+
+/* The Transformation */
+.img-hover-zoom--colorize:hover img {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -215,8 +238,8 @@ html {
 }
 
 body {
-    background: #100e17;
-    /* fallback for old browsers */
+    background-image: radial-gradient( circle 760px at 50.7% 60.5%, rgba(76,120,183,1) 0%, rgba(34,70,122,1) 90% );
+    era 12+, Safari 7+ */
 }
 
 /*-----Footer --------------- */

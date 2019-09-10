@@ -126,9 +126,6 @@ namespace Roadsters.Areas.Admin.Controllers
                 return View(BikeVM);
             }
 
-            _db.Bikes.Add(BikeVM.Bike);
-            await _db.SaveChangesAsync();
-
             //Work on the image saving section
 
             string webRootPath = _hostingEnvironment.WebRootPath;

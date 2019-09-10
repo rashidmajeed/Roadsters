@@ -117,9 +117,6 @@ namespace Roadsters.Areas.Admin.Controllers
                 return NotFound();
             }
            
-            _db.Accessories.Add(AccessorieVM.Accessorie);
-            await _db.SaveChangesAsync();
-
             //Work on the image saving section
 
             string webRootPath = _hostingEnvironment.WebRootPath;

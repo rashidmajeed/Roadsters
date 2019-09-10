@@ -19,6 +19,8 @@ namespace Roadsters.Data
         public DbSet<Bike> Bikes { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
         public DbSet<Accessorie> Accessories { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
 
 
 

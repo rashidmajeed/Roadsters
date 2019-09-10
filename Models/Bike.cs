@@ -9,6 +9,7 @@ namespace Roadsters.Models
 {
     public class Bike
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
